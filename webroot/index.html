@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vasto-Lord Web UI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+  
+<!-- Date Bar -->
+<div class="date-bar" id="dateBar"></div>
+
+<!-- Banner -->
+<div class="banner">
+  <img class="banner-logo" src="logo.png" alt="Logo Vasto-Lord">
+  <div class="banner-title">
+    <div class="jp-text">Vasto-Lord</div>
+    <div>Criador: @astrasy</div>
+    <div>POCO X6 PRO 2026 Performance Module</div>
+  </div>
+  <div class="banner-overlay">
+    <div class="mode-selector">
+      <button id="adaptiveBtn" class="mode active">Eficiência</button>
+      <button id="xmodeBtn" class="mode">Performance</button>
+    </div>
+  </div>
+</div>
+
+<!-- Cards -->
+<div class="cards">
+  <div class="card">
+    <p class="label">Uso de CPU</p>
+    <h2 id="cpuUsage">--%</h2>
+    <p class="sub">Carga em tempo real</p>
+    <div class="progress">
+      <div id="cpuBar" style="width:35%;background:linear-gradient(90deg,#f59e0b,#ef4444);height:100%;border-radius:10px;"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="label">Uso de RAM</p>
+    <h2 id="ramUsage">-- / -- GB</h2>
+    <p class="sub">Carga em tempo real</p>
+    <div class="progress">
+      <div id="ramBar"></div>
+    </div>
+  </div>
+</div>
+
+<section class="device-profile">
+  <h3>Perfil do dispositivo (POCO X6 Pro)</h3>
+  <ul>
+    <li><strong>SoC:</strong> MediaTek Dimensity 8300-Ultra (4 nm)</li>
+    <li><strong>CPU:</strong> 1× Cortex-A715 3.35 GHz + 3× Cortex-A715 3.2 GHz + 4× Cortex-A510 2.2 GHz</li>
+    <li><strong>GPU:</strong> Mali-G615 MC6</li>
+    <li><strong>Memória:</strong> LPDDR5X 8/12 GB</li>
+    <li><strong>Armazenamento:</strong> UFS 4.0 (256/512 GB)</li>
+    <li><strong>Tela:</strong> 6,67" AMOLED 1.5K (2712×1220) 120 Hz</li>
+    <li><strong>Bateria:</strong> 5000 mAh · Turbo Charge 67 W</li>
+  </ul>
+</section>
+
+<!-- Menu Bar -->
+<div class="menu-bar">
+  <div class="feature" id="advance-feature">
+    <div class="feature-header center-header">
+      <h3>Ajustes avançados</h3>
+      <p>Toque para expandir</p>
+    </div>
+  </div>
+
+  <div class="feature" id="support-feature">
+    <div class="feature-header center-header">
+      <h3>Suporte</h3>
+      <p>Toque para expandir</p>
+    </div>
+  </div>
+</div>
+
+<!-- Toggles -->
+<div class="features">
+  <div class="feature">
+    <div class="feature-header">
+      <div>
+        <h3>Dimensity Dynamics™</h3>
+        <p>Otimiza ajustes do chipset Dimensity 8300-Ultra.</p>
+      </div>
+      <button class="toggle" id="ChipsetOptimizer">OFF</button>
+    </div>
+    <div class="desc">Ajustes de I/O e logging para reduzir overhead e melhorar a estabilidade térmica.</div>
+  </div>
+  
+  <div class="feature">
+    <div class="feature-header">
+      <div>
+        <h3>HyperOS Turbo Drive</h3>
+        <p>Ativa modo responsivo do sistema e escalonamento inteligente.</p>
+      </div>
+      <button class="toggle" id="miuiBoost">OFF</button>
+    </div>
+    <div class="desc">Aprimora threads de animação e prioriza núcleos grandes quando necessário.</div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-header">
+      <div>
+        <h3>Configuração de CPU</h3>
+        <p>Equilibra limites de CPU conforme carga e uso diário.</p>
+      </div>
+      <button class="toggle" id="activityManager">OFF</button>
+    </div>
+    <div class="desc">Ajusta limites de uso e alvo de render para manter fluidez com eficiência.</div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-header">
+      <div>
+        <h3>Game Mode Inteligente</h3>
+        <p>Perfis de jogo para FPS alto e estabilidade.</p>
+      </div>
+      <button class="toggle" id="gameManager">OFF</button>
+    </div>
+    <div class="desc">Ativa intervenções do sistema para manter FPS estável e reduzir stutter.</div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-header">
+      <div>
+        <h3>Fstrim em cada boot</h3>
+        <p>Manutenção do armazenamento para respostas rápidas.</p>
+      </div>
+      <button class="toggle" id="fstrimBoot">OFF</button>
+    </div>
+    <div class="desc">Mantém o armazenamento UFS 4.0 com baixa latência.</div>
+  </div>
+
+  <div class="feature">
+    <div class="feature-header">
+      <div>
+        <h3>Melhoria de rede</h3>
+        <p>DNS estável para latência menor.</p>
+      </div>
+      <button class="toggle" id="netEnh">OFF</button>
+    </div>
+    <div class="desc">Usa DNS seguro para melhorar consistência de ping.</div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>© 2026 Vasto-Lord — @astrasy</footer>
+
+<!-- Advance Popup -->
+<section id="advance-popup" class="popup-overlay">
+  <div class="popup-content">
+    <span class="close-btn" data-close="advance-popup">&times;</span>
+    <h3 style="margin-bottom:15px;text-align:left;">Ajustes avançados</h3>
+
+    <div class="row-column">
+      <span>Renderização</span>
+      <select id="rendering">
+        <option>Não definir</option>
+        <option>SkiaGL</option>
+        <option>SkiaVK</option>
+      </select>
+      <button class="apply-btn">Aplicar</button>
+    </div>
+
+    <div class="row-column">
+      <span>Tipo de composição</span>
+      <select id="composition">
+        <option>Não definir</option>
+        <option>GPU</option>
+        <option>CPU</option>
+        <option>MDP</option>
+        <option>C2D</option>
+        <option>DYN</option>
+      </select>
+      <button class="apply-btn">Aplicar</button>
+    </div>
+
+    <div class="row-column">
+      <span>Taxa de atualização</span>
+      <select id="refresh">
+        <option>Não definir</option>
+        <option>60Hz</option>
+        <option>90Hz</option>
+        <option>120Hz</option>
+        <option>144Hz</option>
+      </select>
+      <button class="apply-btn">Aplicar</button>
+    </div>
+
+    <div class="row-column">
+      <span>Fator de memória</span>
+      <select id="memFactor">
+        <option>Não definir</option>
+        <option>Normal</option>
+        <option>Critical</option>
+        <option>Low</option>
+      </select>
+      <button class="apply-btn">Aplicar</button>
+    </div>
+
+    <div class="row-column">
+      <span>Serviço térmico</span>
+      <select id="thermal">
+        <option>Não definir</option>
+        <option>Default</option>
+        <option>None</option>
+        <option>Light</option>
+        <option>Moderate</option>
+        <option>Severe</option>
+        <option>Critical</option>
+        <option>Emergency</option>
+        <option>Shutdown</option>
+      </select>
+      <button class="apply-btn">Aplicar</button>
+    </div>
+
+    <div class="row-column">
+      <span>Driver para jogos</span>
+      <select id="driver">
+        <option>Não definir</option>
+        <option>Reset</option>
+        <option>GameDriver</option>
+        <option>AngleNative</option>
+      </select>
+      <button class="apply-btn">Aplicar</button>
+    </div>
+  </div>
+</section>
+
+<!-- Support Popup -->
+<section id="support-popup" class="popup-overlay">
+  <div class="popup-content">
+    <span class="close-btn" data-close="support-popup">&times;</span>
+    <h3 style="text-align:left; margin-bottom:10px;">Suporte</h3>
+    <div class="row-column" style="align-items:flex-start; text-align:left;">
+      <p>Projeto criado por <strong>@astrasy</strong>.</p>
+      <p>🔗 <strong><a href="https://t.me/astrasy" target="_blank" style="color:#4a90e2;">Telegram</a></strong></p>
+    </div>
+    <div class="row-column" style="align-items:flex-start; text-align:left;">
+      <h3>Ajuda</h3>
+      <p>Entre em contato para documentação e novidades.</p>
+      <p>📨 <strong><a href="https://t.me/astrasy" target="_blank" style="color:#4a90e2;">@astrasy</a></strong></p>
+    </div>
+  </div>
+</section>
+
+<script type="module" src="script.js"></script>
+</body>
+</html>
