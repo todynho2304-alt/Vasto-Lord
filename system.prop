@@ -1,0 +1,58 @@
+#!/system/bin/sh
+# This file will be read by setprop
+# Example: Change dpi
+# ro.sf.lcd_density=320
+
+# Optimize Framework Multimedia
+debug.c2.use_dmabufheaps=1
+
+# Rendering Engine
+debug.hwui.render_ahead=1
+debug.hwui.render_dirty_regions=false
+debug.hwui.use_gpu_pixel_buffers=true
+debug.hwui.trace_gpu_resources=false
+debug.hwui.disable_vsync=false
+debug.egl.buffcount=3
+debug.egl.callstack=0
+debug.egl.finish=0
+debug.egl.force_msaa=0
+debug.egl.trace=0
+debug.egl.traceGpuCompletion=0
+debug.egl.swapinterval=1
+debug.gr.swapinterval=1
+debug.gr.numframebuffers=3
+debug.graphics.gpu.profiler.perfetto=0
+debug.renderengine.graphite=true
+
+# Cpu Hint from infinix X6725
+debug.sf.enable_adpf_cpu_hint=true
+debug.fwk.enable_adpf_cpu_hint=true
+
+# Render Script
+debug.rs.profile=0
+debug.rs.forcecompat=0
+debug.rs.forcerecompile=0
+debug.rs.debug=0
+
+# SurfaceFlinger Optimized
+debug.sf.drop_missed_frames=1
+debug.sf.auto_latch_unsignaled=1
+debug.sf.multithreaded_present=1
+debug.sf.use_frame_rate_priority=1
+debug.sf.enable_egl_image_tracker=false
+debug.sf.enable_transaction_tracing=false
+debug.sf.enable_gpu_security=0
+debug.sf.enable_changezorder_flag=true
+
+# HWUI
+debug.hwui.use_hint_manager=true
+debug.hwui.disable_draw_defer=false
+debug.hwui.skip_empty_damage=false
+debug.hwui.skip_eglmanager_telemetry=true
+
+# Miscellaneous
+debug.choreographer.frametime=false
+debug.thermal.throttle.support=false
+debug.cpurend.vsync=true
+debug.display.render_frame_rate_is_physical_refresh_rate=true
+debug.kill_allocating_task=0
